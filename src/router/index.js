@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Dashboard from '@/views/Dashboard'
 import GridSystem from '@/views/GridSystem'
 import GridListPage from '@/views/GridListPage'
-import BreakPoints from '@/views/BreakPoints'
+import Breakpoints from '@/views/Breakpoints'
 import Typography from '@/views/Typography'
 import Tables from '@/views/Tables'
 import Form from '@/views/Form'
@@ -30,8 +30,8 @@ const routes = [
   },
   {
     path: '/breakpoints',
-    name: 'BreakPoints',
-    component: BreakPoints
+    name: 'Breakpoints',
+    component: Breakpoints
   },
   {
     path: '/typography',
