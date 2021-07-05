@@ -1,9 +1,19 @@
 <template>
-  <div />
+  <v-app>
+    <v-main>
+      <authentication-view />
+    </v-main>
+  </v-app>
 </template>
-<script>
-export default {
 
+<script>
+import AuthenticationView from './View'
+
+export default {
+  name: 'AuthenticationLayout',
+  components : {
+    AuthenticationView,
+  }
 }
 </script>
 <style lang="">

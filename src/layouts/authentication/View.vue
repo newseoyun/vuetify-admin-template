@@ -1,11 +1,11 @@
 <template>
   <router-view />
 </template>
-
 <script>
-import '@/styles/override.sass'
 export default {
-  name: 'App',
-
-};
+  name: 'AuthenticationView'
+}
 </script>
+<style lang="">
+
+</style>

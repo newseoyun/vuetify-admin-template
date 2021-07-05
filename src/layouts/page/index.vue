@@ -1,10 +1,20 @@
 <template>
-  <div />
+  <v-app>
+    <page-app-bar />
+    <page-view />
+  </v-app>
 </template>
-<script>
-import '@/styles/overrides.sass'
-export default {
 
+<script>
+import PageAppBar from './AppBar'
+import PageView from './View'
+
+export default {
+  name: 'PageLayout',
+  components: {
+    PageAppBar,
+    PageView
+  }
 }
 </script>
 <style lang="">
