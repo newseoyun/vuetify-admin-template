@@ -10,10 +10,8 @@
   </v-app-bar>
 </template>
 <script>
-
-
 export default {
-
+  name: 'DefaultBar',
 }
 </script>
 <style lang="">
