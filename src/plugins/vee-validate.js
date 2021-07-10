@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { extend, ValidationObserver, ValidationProvider } from 'vee-validate'
-import { max, required, numeric, digits, email } from 'vee-validate/dist/rules'
+import { max, required, numeric, digits, email, confirmed } from 'vee-validate/dist/rules'
 
 extend('max', {
   ...max,
@@ -22,5 +22,10 @@ extend('email', {
   ...email,
   message: '{_field_} 형식이 맞지 않습니다.'
 })
+extend('confirmed', {
+  ...confirmed,
+  message: '비밀번호와 비밀번호 확인이 일치하지 않습니다.'
+})
+
 Vue.component('ValidationObserver', ValidationObserver)
 Vue.component('ValidationProvider', ValidationProvider)
