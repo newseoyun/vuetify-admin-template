@@ -2,22 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import DefaultLayout from '@/layouts/default/Index'
-import Dashboard from '@/views/Dashboard'
-import GridSystem from '@/views/GridSystem'
-import GridListPage from '@/views/GridListPage'
-import Breakpoints from '@/views/Breakpoints'
-import Typography from '@/views/Typography'
-import Tables from '@/views/Tables'
-import Form from '@/views/Form'
-import Buttons from '@/views/Buttons'
-import Icons from '@/views/Icons'
-
 import AuthenticationLayout from '@/layouts/authentication/Index'
-import SignIn from '@/views/authentication/SignIn'
-import SignUp from '@/views/authentication/SignUp'
-
 import PageLayout from '@/layouts/page/Index'
-import ProductList from '@/views/page/ProductList'
 
 
 /*
@@ -33,6 +19,9 @@ const Test = function(resolve, reject) {
   // })
 }
 
+빌드 시 해당 컴포넌트 부분은 청크 파일로 따로 생성된다.
+각각 다 따로 생성되면 비효율적이니까 특수 주석으로 청크파일을 grouping 할 수 있음.
+
 */
 
 Vue.use(VueRouter)
@@ -45,52 +34,74 @@ const routes = [
       {
         path: '/',
         name: 'Dashboard',
-        component: Dashboard
-      },
-      {
-        path: '/test',
-        name: 'Test',
-        component: () => import('@/views/Test') // lazy loading
+        component: () => import(
+          /* webpackChunkName: "views-default" */
+          '@/views/Dashboard'
+        )
       },
       {
         path: '/grid-system',
         name: 'GridSystem',
-        component: GridSystem
+        component: () => import(
+          /* webpackChunkName: "views-default-grid" */
+          '@/views/GridSystem'
+        )
       },
       {
         path: '/grid-list-page',
         name: 'GridListPage',
-        component: GridListPage
+        component: () => import(
+          /* webpackChunkName: "views-default-grid" */
+          '@/views/GridListPage'
+        )
       },
       {
         path: '/breakpoints',
         name: 'Breakpoints',
-        component: Breakpoints
+        component: () => import(
+          /* webpackChunkName: "views-default-grid" */
+          '@/views/Breakpoints'
+        )
       },
       {
         path: '/typography',
         name: 'Typography',
-        component: Typography
+        component: () => import(
+          /* webpackChunkName: "views-default" */
+          '@/views/Typography'
+        )
       },
       {
         path: '/tables',
         name: 'Tables',
-        component: Tables
+        component: () => import(
+          /* webpackChunkName: "views-default" */
+          '@/views/Tables'
+        )
       },
       {
         path: '/form',
         name: 'Form',
-        component: Form
+        component: () => import(
+          /* webpackChunkName: "views-default" */
+          '@/views/Form'
+        )
       },
       {
         path: '/buttons',
         name: 'Buttons',
-        component: Buttons
+        component: () => import(
+          /* webpackChunkName: "views-default" */
+          '@/views/Buttons'
+        )
       },
       {
         path: '/icons',
         name: 'Icons',
-        component: Icons
+        component: () => import(
+          /* webpackChunkName: "views-default" */
+          '@/views/Icons'
+        )
       },
     ]
   },
@@ -101,12 +112,18 @@ const routes = [
       {
         path: 'sign-in',
         name: 'SignIn',
-        component: SignIn
+        component: () => import(
+          /* webpackChunkName: "views-authentication" */
+          '@/views/authentication/SignIn'
+        )
       },
       {
         path: 'sign-up',
         name: 'SignUp',
-        component: SignUp
+        component: () => import(
+          /* webpackChunkName: "views-authentication" */
+          '@/views/authentication/SignUp'
+        )
       },
     ]
   },
@@ -117,7 +134,10 @@ const routes = [
       {
         path: 'product-list',
         name: 'ProductList',
-        component: ProductList
+        component: () => import(
+          /* webpackChunkName: "views-page" */
+          '@/views/page/ProductList'
+        )
       },
     ]
   }
