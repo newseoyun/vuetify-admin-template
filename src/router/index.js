@@ -19,7 +19,21 @@ import SignUp from '@/views/authentication/SignUp'
 import PageLayout from '@/layouts/page/Index'
 import ProductList from '@/views/page/ProductList'
 
+
+/*
+// lazy loading
+
 import Test from '@/views/Test'
+
+const Test = function(resolve, reject) {
+  return import('@/views/Test') // 다이나믹 임포트
+
+  // resolve({ // promise 객체를 이용한 lazy loading
+  //   'template': '<div>HELLO TEST</div>'
+  // })
+}
+
+*/
 
 Vue.use(VueRouter)
 
@@ -36,7 +50,7 @@ const routes = [
       {
         path: '/test',
         name: 'Test',
-        component: Test
+        component: () => import('@/views/Test') // lazy loading
       },
       {
         path: '/grid-system',
