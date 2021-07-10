@@ -1,104 +1,135 @@
 <template>
-  <v-container
-    fluid
-  >
-    <v-card class="pa-3">
-      <v-form
-        ref="form"
-        v-model="valid"
-        lazy-validation
-      >
-        <v-text-field
-          v-model="name"
-          :counter="10"
-          :rules="nameRules"
-          label="Name"
-          required
-        />
-
-        <v-text-field
-          v-model="email"
-          :rules="emailRules"
-          label="E-mail"
-          required
-        />
-
-        <v-select
-          v-model="select"
-          :items="items"
-          :rules="[v => !!v || 'Item is required']"
-          label="Item"
-          required
-        />
-
-        <v-checkbox
-          v-model="checkbox"
-          :rules="[v => !!v || 'You must agree to continue!']"
-          label="Do you agree?"
-          required
-        />
-
-        <v-btn
-          :disabled="!valid"
-          color="success"
-          class="mr-4"
-          @click="validate"
+  <v-container fluid>
+    <v-card>
+      <v-card-title>
+        Form Validation
+      </v-card-title>
+      <v-card-text>
+        <validation-observer
+          ref="observer"
+          v-slot=" { invalid }"
         >
-          Validate
-        </v-btn>
-
-        <v-btn
-          color="error"
-          class="mr-4"
-          @click="reset"
-        >
-          Reset Form
-        </v-btn>
-
-        <v-btn
-          color="warning"
-          @click="resetValidation"
-        >
-          Reset Validation
-        </v-btn>
-      </v-form>
+          {{ invalid }}
+          <v-form @submit.prevent="submit">
+            <validation-provider
+              v-slot="{ errors }"
+              name="이름"
+              rules="required|max:10"
+            >
+              <v-text-field
+                v-model="name"
+                label="Name"
+                :counter="10"
+                :error-messages="errors"
+              />
+            </validation-provider>
+            <validation-provider
+              v-slot="{ errors }"
+              name="전화번호"
+              :rules="{
+                required: true,
+                numeric: true,
+                digits: 11
+              }"
+            >
+              <v-text-field
+                v-model="phoneNumber"
+                label="PhoneNumber"
+                :error-messages="errors"
+                :counter="11"
+              />
+            </validation-provider>
+            <validation-provider
+              v-slot="{ errors }"
+              name="이메일"
+              :rules="{
+                required: true,
+                email: true,
+              }"
+            >
+              <v-text-field
+                v-model="email"
+                label="E-Mail"
+                :error-messages="errors"
+              />
+            </validation-provider>
+            <validation-provider
+              v-slot="{ errors }"
+              name="선택"
+              :rules="{
+                required: true,
+              }"
+            >
+              <v-select
+                v-model="select"
+                label="Select"
+                :items="items"
+                :error-messages="errors"
+              />
+            </validation-provider>
+            <validation-provider
+              v-slot="{ errors }"
+              name="체크"
+              :rules="{
+                required: true,
+              }"
+            >
+              <v-checkbox
+                v-model="checkbox"
+                label="Checkbox"
+                value="1"
+                :error-messages="errors"
+              />
+            </validation-provider>
+            <v-btn
+              type="submit"
+              class="mr-4"
+              color="primary"
+              :disabled="invalid"
+            >
+              submit
+            </v-btn>
+            <v-btn @click="clear">
+              clear
+            </v-btn>
+          </v-form>
+        </validation-observer>
+      </v-card-text>
     </v-card>
   </v-container>
 </template>
 <script>
-export default {
-  data: () => ({
-    valid: true,
-    name: '',
-    nameRules: [
-      v => !!v || 'Name is required',
-      v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-    ],
-    email: '',
-    emailRules: [
-      v => !!v || 'E-mail is required',
-      v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-    ],
-    select: null,
-    items: [
-      'Item 1',
-      'Item 2',
-      'Item 3',
-      'Item 4',
-    ],
-    checkbox: false,
-  }),
 
+export default {
+  name: 'Forms',
+  data: () => ({
+    name: null,
+    phoneNumber: null,
+    email: null,
+    select: null,
+    checkbox: null,
+    items: [
+      {text: '아이템1', value: 1},
+      {text: '아이템2', value: 2},
+      {text: '아이템3', value: 3},
+    ]
+  }),
   methods: {
-    validate () {
-      this.$refs.form.validate()
+    submit() {
+      this.$refs.observer.validate().then(result => {
+        console.log('result: ', result)
+        if(result) {
+          alert('양식 제출')
+        }
+      })
     },
-    reset () {
-      this.$refs.form.reset()
-    },
-    resetValidation () {
-      this.$refs.form.resetValidation()
-    },
+    clear() {
+      this.name = null
+      this.phoneNumber = null
+      this.email = null
+      this.select = null
+      this.checkbox = null
+    }
   },
 }
 </script>
