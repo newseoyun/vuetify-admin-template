@@ -19,6 +19,8 @@ import SignUp from '@/views/authentication/SignUp'
 import PageLayout from '@/layouts/page/Index'
 import ProductList from '@/views/page/ProductList'
 
+import Test from '@/views/Test'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -30,6 +32,11 @@ const routes = [
         path: '/',
         name: 'Dashboard',
         component: Dashboard
+      },
+      {
+        path: '/test',
+        name: 'Test',
+        component: Test
       },
       {
         path: '/grid-system',
