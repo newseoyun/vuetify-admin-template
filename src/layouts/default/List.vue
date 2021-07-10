@@ -20,14 +20,17 @@
 </template>
 
 <script>
-import DefaultListGroup from './ListGroup'
-import DefaultListItem from './ListItem'
-
 export default {
   name: 'DefaultList',
   components: {
-    DefaultListItem,
-    DefaultListGroup,
+    DefaultListItem: () => import(
+      /* webpackChunkName: "default-list-item" */
+      './ListItem'
+    ),
+    DefaultListGroup: () => import(
+      /* webpackChunkName: "default-list-group" */
+      './ListGroup'
+    ),
   },
   props: {
     items: {
