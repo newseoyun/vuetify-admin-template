@@ -99,15 +99,18 @@
   </v-container>
 </template>
 <script>
-
 export default {
   name: 'Forms',
+  components: {
+
+  },
   data: () => ({
     name: null,
     phoneNumber: null,
     email: null,
     select: null,
     checkbox: null,
+    customValue: null,
     items: [
       {text: '아이템1', value: 1},
       {text: '아이템2', value: 2},

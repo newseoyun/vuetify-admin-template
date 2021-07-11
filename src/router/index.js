@@ -67,31 +67,47 @@ const routes = [
         path: '/typography',
         name: 'Typography',
         component: () => import(
-          /* webpackChunkName: "views-default" */
+          /* webpackChunkName: "views-typography" */
           '@/views/Typography'
         )
       },
       {
-        path: '/tables',
-        name: 'Tables',
+        path: '/table/basic-table',
+        name: 'BasicTable',
         component: () => import(
-          /* webpackChunkName: "views-default" */
-          '@/views/Tables'
+          /* webpackChunkName: "views-tables" */
+          '@/views/table/BasicTable'
         )
       },
       {
-        path: '/form',
-        name: 'Form',
+        path: '/table/app-table',
+        name: 'AppTable',
         component: () => import(
-          /* webpackChunkName: "views-default" */
-          '@/views/Form'
+          /* webpackChunkName: "views-tables" */
+          '@/views/table/AppTable'
+        )
+      },
+      {
+        path: '/forms/validation-form',
+        name: 'ValidationForm',
+        component: () => import(
+          /* webpackChunkName: "views-validation-form" */
+          '@/views/form/ValidationForm'
+        )
+      },
+      {
+        path: '/forms/app-form',
+        name: 'AppForm',
+        component: () => import(
+          /* webpackChunkName: "views-app-form" */
+          '@/views/form/AppForm'
         )
       },
       {
         path: '/buttons',
         name: 'Buttons',
         component: () => import(
-          /* webpackChunkName: "views-default" */
+          /* webpackChunkName: "views-buttons" */
           '@/views/Buttons'
         )
       },
@@ -99,7 +115,7 @@ const routes = [
         path: '/icons',
         name: 'Icons',
         component: () => import(
-          /* webpackChunkName: "views-default" */
+          /* webpackChunkName: "views-icons" */
           '@/views/Icons'
         )
       },

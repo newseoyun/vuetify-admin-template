@@ -48,8 +48,14 @@ export default {
       { title: 'Grid List Page', icon: 'mdi-view-dashboard', to: '/grid-list-page' },
       { title: 'Breakpoints', icon: 'mdi-view-dashboard', to: '/breakpoints' },
       { title: 'Typography', icon: 'mdi-view-dashboard', to: '/typography' },
-      { title: 'Tables', icon: 'mdi-chart-box-outline', to: '/tables' },
-      { title: 'Form', icon: 'mdi-account-box-multiple', to: '/form' },
+      { title: 'Tables', icon: 'mdi-chart-box-outline', items: [
+        { title: 'Basic Table', icon: 'mdi-account-box-multiple', to: '/table/basic-table' },
+        { title: 'App Table', icon: 'mdi-account-box-multiple', to: '/table/app-table' },
+      ]},
+      { title: 'Form', icon: 'mdi-account-box-multiple', items: [
+        { title: 'Validation Form', icon: 'mdi-account-box-multiple', to: '/form/validation-form' },
+        { title: 'App Form', icon: 'mdi-account-box-multiple', to: '/form/app-form' },
+      ]},
       { title: 'Buttons', icon: 'mdi-view-dashboard', to: '/buttons' },
       { title: 'Icons', icon: 'mdi-view-dashboard', to: '/icons' },
     ],
