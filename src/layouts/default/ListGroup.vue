@@ -11,12 +11,12 @@
     </template>
 
     <template v-for="(child, index) in item.items">
-      <default-list-group
+      <DefaultListGroup
         v-if="child.items"
         :key="`sub-group-${index}`"
         :item="child"
       />
-      <default-list-item
+      <DefaultListItem
         v-else
         :key="`child-${index}`"
         :item="child"
