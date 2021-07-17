@@ -1,24 +1,14 @@
 # vuetify-admin-template
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+#### 인프런, 유튜브 동명 강의 수강
 
-### Compiles and minifies for production
-```
-npm run build
-```
+* Vuetify Admin Template 만들기 - 기본편
+* Vuetify Admin Template 만들기 - 실전편
 
-### Lints and fixes files
-```
-npm run lint
-```
+#### 학습 기간
+* 2021.07.02 ~ 2021.07.17
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#### 소감
+* vuetify 덕분에 준수한 퀄리티의 페이지를 빠르게 만들 수 있었음. 템플릿 라이브러리의 생산성, 유용함을 많이 느낌.
+* 공식 문서의 예제를 실제로 적용해보는 방식이어서, 나중에 추가로 필요한 부분을 이런식으로 적용하면 되겠다는 방법을 알게됨.
