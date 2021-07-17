@@ -100,10 +100,6 @@
 </template>
 <script>
 export default {
-  name: 'Forms',
-  components: {
-
-  },
   data: () => ({
     name: null,
     phoneNumber: null,

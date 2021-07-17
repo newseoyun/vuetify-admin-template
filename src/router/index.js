@@ -88,7 +88,7 @@ const routes = [
         )
       },
       {
-        path: '/forms/validation-form',
+        path: '/form/validation-form',
         name: 'ValidationForm',
         component: () => import(
           /* webpackChunkName: "views-validation-form" */
@@ -96,7 +96,7 @@ const routes = [
         )
       },
       {
-        path: '/forms/app-form',
+        path: '/form/app-form',
         name: 'AppForm',
         component: () => import(
           /* webpackChunkName: "views-app-form" */

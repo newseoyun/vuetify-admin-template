@@ -3,19 +3,19 @@
     <v-card class="mt-5">
       <v-card-text>
         {{ customValue }}
-        <app-text-field
+        <AppTextField
           v-model="customValue"
           label="이름"
           placeholder="여기에 입력해주세요"
           :counter="20"
         />
-        <app-text-field
+        <AppTextField
           v-model="customValue"
           label="나이"
           placeholder="여기에 입력해주세요"
           :counter="20"
         />
-        <app-text-field
+        <AppTextField
           v-model="customValue"
           label="닉네임"
           placeholder="여기에 입력해주세요"
