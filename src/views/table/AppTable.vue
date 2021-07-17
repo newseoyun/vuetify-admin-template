@@ -1,20 +1,24 @@
 <template>
   <v-container>
-    <v-card>
-      <v-card-title>
-        회원 목록
-      </v-card-title>
-      <v-data-table
-        :headers="headers"
-        :items="desserts"
-        :items-per-page="5"
-        class="elevation-1"
-      />
-    </v-card>
+    <AppDataTable
+      title="회원목록"
+      :headers="headers"
+      :items="desserts"
+      :items-per-page="5"
+    >
+      <div slot="top">
+        Hello World~
+      </div>
+    </AppDataTable>
   </v-container>
 </template>
 <script>
+import AppDataTable from '@/components/app/DataTable'
+
 export default {
+  components: {
+    AppDataTable,
+  },
   data () {
     return {
       headers: [
